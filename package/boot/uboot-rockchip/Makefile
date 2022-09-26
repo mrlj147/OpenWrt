@@ -68,11 +68,71 @@ define U-Boot/rockpro64-rk3399
   ATF:=rk3399_bl31.elf
 endef
 
+# RK3568 boards
+
+define U-Boot/mrkaio-m68s-rk3568
+  BUILD_SUBTARGET:=armv8
+  NAME:=Mrkaio M68S
+  BUILD_DEVICES:= \
+    ezpro_mrkaio-m68s
+  DEPENDS:=+PACKAGE_u-boot-mrkaio-m68s-rk3568:arm-trusted-firmware-rk3568
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=rk3568_bl31_v1.28.elf
+  DDR:=rk3568_ddr_1560MHz_v1.13.bin
+endef
+
+define U-Boot/opc-h68k-rk3568
+  BUILD_SUBTARGET:=armv8
+  NAME:=OPC-H68K Board
+  BUILD_DEVICES:= \
+    hinlink_opc-h68k
+  DEPENDS:=+PACKAGE_u-boot-opc-h68k-rk3568:arm-trusted-firmware-rk3568
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=rk3568_bl31_v1.28.elf
+  DDR:=rk3568_ddr_1560MHz_v1.13.bin
+endef
+
+define U-Boot/rock-3a-rk3568
+  BUILD_SUBTARGET:=armv8
+  NAME:=ROCK3 Model A
+  BUILD_DEVICES:= \
+    radxa_rock-3a
+  DEPENDS:=+PACKAGE_u-boot-rock-3a-rk3568:arm-trusted-firmware-rk3568
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=rk3568_bl31_v1.28.elf
+  DDR:=rk3568_ddr_1560MHz_v1.13.bin
+endef
+
+define U-Boot/r66s-rk3568
+  BUILD_SUBTARGET:=armv8
+  NAME:=R66S/R68S
+  BUILD_DEVICES:= \
+    fastrhino_r66s \
+    fastrhino_r68s
+  DEPENDS:=+PACKAGE_u-boot-r66s-rk3568:arm-trusted-firmware-rk3568
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=rk3568_bl31_v1.28.elf
+  DDR:=rk3568_ddr_1560MHz_v1.13.bin
+endef
+
+define U-Boot/station-p2-rk3568
+  BUILD_SUBTARGET:=armv8
+  NAME:=StationP2
+  BUILD_DEVICES:= \
+       firefly_station-p2
+  DEPENDS:=+PACKAGE_u-boot-station-p2-rk3568:arm-trusted-firmware-rk3568
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=rk3568_bl31_v1.28.elf
+  DDR:=rk3568_ddr_1560MHz_v1.13.bin
+endef
+
 UBOOT_TARGETS := \
   nanopi-r4s-rk3399 \
   rock-pi-4-rk3399 \
   rockpro64-rk3399 \
-  nanopi-r2s-rk3328
+  nanopi-r2s-rk3328 \
+  r66s-rk3568 \
+  
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 
